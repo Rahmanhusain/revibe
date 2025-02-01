@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "ReVibe",
+  "version": "1.0",
+  "description": "A Chrome extension built with Vite and React.",
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "icons": {
+    "16": "icons/logo.png",
+    "48": "icons/logo.png",
+    "128": "icons/logo.png"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "icons/logo.png",
+      "48": "icons/logo.png",
+      "128": "icons/logo.png"
+    }
+  },
+  "permissions": ["storage", "activeTab", "desktopCapture", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+"content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content.jsx","src/content2.jsx"]
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["src/tailwind.css", "src/index.css", "assets/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';",
+    "content_scripts": "style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com;"
+  },
+  "host_permissions": ["<all_urls>"]
+}

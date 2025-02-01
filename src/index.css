@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oregano:ital@0;1&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.cookie {
+  font-family: "Cookie", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.orbitron{
+  font-family: "Orbitron", serif;
+}
+.oregano {
+  font-family: "Oregano", serif;
+}
+
+:root{
+  --textColor: #f5f5f5;
+  --bgColor: rgba(0, 0, 0, 0.38);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.fontbahnschrift {
+  font-family: 'Bahnschrift Condensed', monospace;
+}
+body{
+    font-family: 'Bahnschrift Condensed', monospace;
+    user-select: none;
+}
+.bg {
+  position: fixed;
+  inset: 0;
+
+}
+.bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bgColor)
+}
+
+.kode-mono-glitter {
+  font-family: "Kode Mono", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+.gradback{
+  background: linear-gradient(135deg, #3f21e8, #eb19bd) !important;
+
+}
+/* Hide scrollbar by default */
+/* Apply only these three styles to .custom-scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px; /* Set scrollbar width */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  border-radius: 10px; /* Rounded track */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px; /* Rounded thumb */
+  background: #615d5e00; /* Track color */
+  transition: background 0.5s ease-in-out;
+}
+.custom-scrollbar:hover::-webkit-scrollbar-thumb{
+  border-radius: 10px; /* Rounded thumb */
+  background: #615d5e75; /* Track color */
+}
+
+.range-custom::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Remove default styling */
+  appearance: none;
+  width: 15px; /* Set width of the thumb */
+  height: 15px; /* Set height of the thumb */
+  background: #16163d; /* Set thumb color */
+  border-radius: 50%; /* Make it circular */
+  cursor: pointer; /* Optional: Add a border */
+}
+
+.imgtheme::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.493);
+  
+}
+
+.transition-transform2 {
+  transition-property: transform;
+  animation: translate100to0 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+
+
+.transition-transform2-reverse {
+  transition-property: transform;
+  animation: translate0to100 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+@keyframes translate0to100 {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+@keyframes translate100to0 {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.sidecardanimation {
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+.sidehide{
+  transform: translateX(calc(-90% - 0.75rem));
+}
+
+@keyframes zoomin {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+.QRanim {
+  animation: zoomin 0.5s cubic-bezier(0.77, 0.2, 0.05, 1) forwards;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #3f21e8, #eb19bd);
+  -webkit-background-clip: text; /* Clip the background to the text */
+  background-clip: text;
+  color: transparent; /* Make the text transparent to show the gradient */
+}
