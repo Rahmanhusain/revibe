@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "ReVibe",
-  "version": "1.0",
-  "description": "A Chrome extension built with Vite and React.",
+  "version": "1.0.0",
+  "description": "ReVibe is a light weight Chrome extension that enhances your new tab with a sleek design, a screentime tracker, and an AI chatbot for instant help on any website. Elevate your browsing with style and intelligence.",
   "chrome_url_overrides": {
     "newtab": "newtab.html"
   },
@@ -19,16 +19,18 @@
       "128": "icons/logo.png"
     }
   },
-  "permissions": ["storage", "activeTab", "desktopCapture", "scripting"],
+  "permissions": ["storage", "activeTab", "desktopCapture", "scripting","notifications"],
   "background": {
     "service_worker": "background.js"
   },
+  
 "content_scripts": [
     {
       "matches": ["<all_urls>"],
       "js": ["src/content.jsx","src/content2.jsx"]
     }
   ],
+
 
   "web_accessible_resources": [
     {

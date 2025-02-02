@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { EyeCloseIcon, EyeOpenIcon } from "./icons/icon";
+import { EyeCloseIcon, EyeOpenIcon, ResetIcon } from "./icons/icon";
 
 function App() {
   const [apiKey, setApiKey] = useState("");
   const [showApiKey, setShowApiKey] = useState(false);
-  const [isContentInjectionEnabled, setIsContentInjectionEnabled] = useState(true);
+  const [isContentInjectionEnabled, setIsContentInjectionEnabled] =
+    useState(true);
+
+    const [ischecking, setIsChecking] = useState(false);
 
   useEffect(() => {
     // Fetch saved settings from chrome.storage.local
@@ -50,21 +53,48 @@ function App() {
       }
     });
   };
+  
 
+  async function checkForUpdate() {
+    try {
+      const response = await fetch("https://rahmanhusain.github.io/My-Portfolio/revibeversion.json");
+      const data = await response.json();
+      const latestVersion = data.version;
+      console.log(latestVersion)
+      const currentVersion = chrome.runtime.getManifest().version;
+  
+      if (latestVersion !== currentVersion) {
+      if (confirm(`Update Available - version-${latestVersion} available! Click OK to download.`)) {
+        window.open("https://revibeweb.vercel.app/", "_blank");
+      }
+      }else{
+        confirm("No updates available")
+     }
+    } catch (error) {
+      console.error("Error checking for updates:", error);
+    }
+  }
+
+  const checkUpdate = async() => {
+    setIsChecking(true)
+ await checkForUpdate()
+  setIsChecking(false)
+  }
   return (
     <div className="relative p-4 w-[380px] min-h-[400px] bg-gray-900 text-gray-100 overflow-hidden border border-gray-800">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-800/30 to-purple-700/20 blur-xl opacity-50"></div>
 
       {/* Background Text */}
-      <div className="absolute inset-0 flex items-center justify-center text-gray-700 text-6xl font-extrabold opacity-10 rotate-[-20deg] pointer-events-none">
-        ReVibe
+      <div className="absolute inset-0 flex items-center justify-center text-gray-700 text-6xl font-extrabold opacity-20  pointer-events-none">
+        <img src="/icons/logo.png" alt="" className="w-[60%] h-auto" />
       </div>
 
       {/* Header */}
       <header className="relative z-10 text-center">
-        <h1 className="text-2xl font-bold text-white">ReVibe</h1>
+        <h1 className="text-2xl font-bold text-white orbitron">ReVibe</h1>
         <p className="mt-1 text-sm text-gray-400">
-          A sleek, vibrant browsing experience.
+          A sleek, vibrant browsing experience with real-time AI chats, anytime,
+          anywhere.
         </p>
       </header>
 
@@ -116,11 +146,20 @@ function App() {
           />
         </label>
         <span className="text-sm text-gray-400">{"( Refresh Required )"}</span>
+       
       </div>
-
+      <button disabled={ischecking} className="flex gap-2 text-sm items-center bg-gray-600 py-2 px-3 rounded-lg absolute bottom-16" onClick={checkUpdate}>
+          {!ischecking&&<ResetIcon className="w-5 h-5 text-white" />}{ischecking?"Checking..." :"Check For Updates"}
+        </button>
       {/* Footer */}
       <footer className="absolute bottom-0 left-0 right-0 p-4 bg-gray-800/90 border-t border-gray-700 flex items-center justify-between">
-        <a href="#" className="" title="Report an issue">
+        <a
+          href="https://revibeweb.vercel.app/report"
+          target="_blank"
+          rel="noopener noreferrer"
+          className=""
+          title="Report an issue"
+        >
           ❓
         </a>
         <div className="flex space-x-4">

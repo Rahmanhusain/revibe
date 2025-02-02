@@ -55,3 +55,41 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   }
 });
 
+chrome.runtime.onStartup.addListener(() => {
+  checkForUpdate();
+});
+
+chrome.notifications.onButtonClicked.addListener((notifId, buttonIndex) => {
+  if (notifId === "update-notif" && buttonIndex === 0) {
+    chrome.tabs.create({ url: "https://revibeweb.vercel.app/" });
+  }
+});
+
+chrome.notifications.onClicked.addListener((notifId) => {
+  if (notifId === "update-notif") {
+    chrome.tabs.create({ url: "https://revibeweb.vercel.app/" });
+  }
+});
+
+async function checkForUpdate() {
+  try {
+    const response = await fetch("https://rahmanhusain.github.io/My-Portfolio/revibeversion.json");
+    const data = await response.json();
+    const latestVersion = data.version;
+    console.log(latestVersion)
+    const currentVersion = chrome.runtime.getManifest().version;
+
+    if (latestVersion !== currentVersion) {
+      chrome.notifications.create("update-notif", {
+        type: "basic",
+        iconUrl: chrome.runtime.getURL("icons/logo.png"), // ✅ Use runtime.getURL() for correct path
+        title: "Update Available",
+        message: `New version ${latestVersion} available! Please reinstall.`,
+        buttons: [{ title: "Download Update" }]
+      });
+      
+    }
+  } catch (error) {
+    console.error("Error checking for updates:", error);
+  }
+}

@@ -22,21 +22,26 @@ const SettingsPanel = React.memo(({ setisopen, themeindex, setthemeindex }) => {
 
   const themes = [
     {
-      name: "Deadpool",
-      img: "/images/dead.webp",
-    },
-    {
       name: "Minimal",
       img: "/images/planet.webp",
+    },
+    
+    {
+      name: "Girl Aesthetic",
+      img: "/images/Girl.webp",
+    },
+    {
+      name: "Deadpool",
+      img: "/images/dead.webp",
     },
     {
       name: "Sukuna",
       img: "/images/sukuna.webp",
     },
     {
-      name: "Girl Aesthetic",
-      img: "/images/Girl.webp",
-    },
+      name: "Desktop",
+      img: "/images/Desktop.webp",
+    }
   ];
 
   useEffect(() => {

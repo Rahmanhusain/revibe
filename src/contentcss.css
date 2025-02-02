@@ -266,8 +266,8 @@
 /* Chat Header */
 .chat-header {
   background: linear-gradient(135deg, #3f21e8, #eb19bd) !important;
-  color: white;
-  padding: 12px 16px;
+  color: white !important;
+  padding: 12px 16px !important;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   display: flex;
@@ -278,6 +278,8 @@
 .chat-title {
   font-size: 20px;
   font-weight: normal;
+  color: white !important;
+  border: none !important;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -288,6 +290,8 @@
   width: 25px;
   height: 25px;
   color: white;
+  border: none !important;
+
 }
 
 .drag-indicator {
@@ -350,6 +354,7 @@
   align-items: center;
   position: absolute;
   inset: 0;
+  border: none !important;
   opacity: 0.35;
 }
 
@@ -363,6 +368,7 @@
 .empty-text {
   color: #fcfdfe;
   text-align: center;
+  border: none !important;
   padding: 0 14px;
   margin-top: 10px;
 }

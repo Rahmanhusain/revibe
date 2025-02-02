@@ -34,7 +34,7 @@ function NewTab() {
       }else{
         document.getElementById(
           "background"
-        ).style.background = `center / cover no-repeat url("images/dead.webp")`;
+        ).style.background = `center / cover no-repeat url("images/planet.webp")`;
       }
       if (result.editableContent) {
         setEditableContent(result.editableContent); // Update state
