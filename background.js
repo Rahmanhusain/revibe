@@ -55,6 +55,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   }
 });
 
+
+
+//checks for the updates
 chrome.runtime.onStartup.addListener(() => {
   checkForUpdate();
 });
