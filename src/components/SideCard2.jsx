@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ClockIcon } from "../icons/icon"; // Assuming you have an icon component
-import "../contentcss.css"
+import "../contentcss.css";
 function SideCard2() {
   const sideCardRef = useRef(null); // Ref for the SideCard container
   const moverRef = useRef(null); // Ref for the mover element
@@ -65,9 +65,10 @@ function SideCard2() {
     }
   };
 
-  const isTesting = false; // Set to false for production (hourly checks)
-
   // Check for time changes
+
+  const isTesting = false; // Set to false for production (hourly checks) and to check if the toggle works in every 10 seconds
+
   const checkHourChange = () => {
     const now = new Date();
 
@@ -101,6 +102,8 @@ function SideCard2() {
       }
     };
   }, []);
+
+  //drag logics start
 
   // Handle pointer down event
   const handlePointerDown = (e) => {
@@ -136,6 +139,7 @@ function SideCard2() {
   const handlePointerUp = () => {
     isDragging.current = false;
   };
+  //drag logics end
 
   //screen time Logic // Initialize when the component mounts
   const [totalDuration, setTotalDuration] = useState(0);
@@ -174,54 +178,53 @@ function SideCard2() {
     const minutes = totalMinutes % 60;
     return `${hours} hrs ${minutes} min`;
   };
+
+  //screen time Logic ends
+
   return (
-   <div
-  ref={sideCardRef}
-  className="side-card sidecardanimation sidehide"
->
-  <div className="timer-container">
-    {/* Timer Component */}
-    <div className="timer-box">
-      <div className="time-display">
-        <h1 className="time-text orbitron">{hours}</h1>
-        <div className="blinking-dots">
-          <span className="blink-dot blink"></span>
-          <span className="blink-dot blink"></span>
+    <div ref={sideCardRef} className="side-card sidecardanimation sidehide">
+      <div className="timer-container">
+        {/* Timer Component */}
+        <div className="timer-box">
+          <div className="time-display">
+            <h1 className="time-text orbitron">{hours}</h1>
+            <div className="blinking-dots">
+              <span className="blink-dot blink"></span>
+              <span className="blink-dot blink"></span>
+            </div>
+            <h1 className="time-text orbitron">{minutes}</h1>
+            <h1 className="time-text orbitron">{ampm}</h1>
+          </div>
+          <p className="date-text">{formattedDate}</p>
         </div>
-        <h1 className="time-text orbitron">{minutes}</h1>
-        <h1 className="time-text orbitron">{ampm}</h1>
+        {/* Timer Component End */}
+
+        {/* Screen Time Box */}
+        <div className="screen-time-box">
+          <div className="flex-grow flex-col gap-4px">
+            <p className="screen-time-text">Screen Time</p>
+            <p className="screen-time-value">{formatDuration(totalDuration)}</p>
+          </div>
+          <ClockIcon className="clock-icon" />
+        </div>
       </div>
-      <p className="date-text">{formattedDate}</p>
-    </div>
-    {/* Timer Component End */}
 
-    {/* Screen Time Box */}
-    <div className="screen-time-box">
-      <div className="flex-grow flex-col gap-4px">
-        <p className="screen-time-text">Screen Time</p>
-        <p className="screen-time-value">{formatDuration(totalDuration)}</p>
+      {/* Mover Element */}
+      <div
+        ref={moverRef}
+        className="mover"
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onClick={() => {
+          sideCardRef.current.classList.toggle("sidehide");
+        }}
+      >
+        <div className="mover-dot"></div>
+        <div className="mover-dot"></div>
+        <div className="mover-dot"></div>
       </div>
-      <ClockIcon className="clock-icon" />
     </div>
-  </div>
-
-  {/* Mover Element */}
-  <div
-    ref={moverRef}
-    className="mover"
-    onPointerDown={handlePointerDown}
-    onPointerMove={handlePointerMove}
-    onPointerUp={handlePointerUp}
-    onClick={() => {
-      sideCardRef.current.classList.toggle("sidehide");
-    }}
-  >
-    <div className="mover-dot"></div>
-    <div className="mover-dot"></div>
-    <div className="mover-dot"></div>
-  </div>
-</div>
-
   );
 }
 
