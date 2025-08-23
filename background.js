@@ -1,4 +1,9 @@
-// Function to update the totalDuration value
+// Function to update the totalDuration value which tracks the user's screen time and reset every day change
+
+
+//Start of totalDuration
+
+//this will check
 chrome.runtime.onInstalled.addListener(function() {
   chrome.storage.local.get('lastRecordedDate', function(result) {
     if (!result.lastRecordedDate) {
@@ -34,8 +39,12 @@ function updateTotalDuration() {
 
 // Call the update function every 30 seconds
 setInterval(updateTotalDuration, 30000);
+//end of totalDuration
 
-// Listen for messages from the content script
+
+
+
+// Listen for messages from the content script for capturing screenshots
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === 'captureScreenshot') {
     // Capture the visible tab

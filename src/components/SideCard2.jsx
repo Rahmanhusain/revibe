@@ -141,6 +141,11 @@ function SideCard2() {
   };
   //drag logics end
 
+
+
+
+  
+
   //screen time Logic // Initialize when the component mounts
   const [totalDuration, setTotalDuration] = useState(0);
   const screenref = useRef();
