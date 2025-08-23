@@ -1,14 +1,16 @@
-﻿# 🌟 ReVibe – Smart New Tab for Chrome  
+﻿# 🌟 ReVibe – Smart New Tab for Chrome (v2.0.0 coming soon) 
 
 [![Download ReVibe](https://img.shields.io/badge/Download-ReVibe-blue?style=for-the-badge)](https://revibe-website-link.com)  
 
 ## 🚀 Introduction  
-**ReVibe** is a lightweight Chrome extension that enhances your browsing experience with:  
+**ReVibe** is a lightweight Chrome extension that transforms your browsing experience with:  
 - 🎨 A **sleek and minimal new tab design**  
 - ⏳ A **screen time tracker** to help you stay mindful  
 - 🤖 An **AI chatbot** for instant help on any website, anytime, anywhere  
+- 🚨 **Coming Soon**: A **powerful ad blocker** to eliminate intrusive ads and trackers in our next update (v2.0.0)!  
+- 🔥 **More exciting features** on the way to supercharge your browsing (Stay tuned!)  
 
-Elevate your browsing with **style and intelligence** ✨  
+Elevate your browsing with **style, intelligence, and soon, an ad-free experience** ✨  
 
 ---
 
@@ -22,7 +24,8 @@ Follow these steps to install ReVibe manually:
 4. Open **Chrome** and go to `chrome://extensions/`.  
 5. Enable **Developer Mode** (toggle in the top-right corner).  
 6. Click **Load Unpacked** and select the `ReVibe` folder.  
-7. (Optional) You may turn off Developer Mode afterward. Chrome may show a warning for untrusted sources – you can safely ignore it.  
+
+> **Note**: The upcoming v2.0.0 update with ad-blocking is compliant with Chrome’s Manifest V3, ensuring compatibility and performance. Stay tuned for release details!
 
 ---
 
@@ -37,7 +40,6 @@ Follow these steps to install ReVibe manually:
 <br><br>  
 ![5](https://github.com/user-attachments/assets/6c3cc9ab-7e30-4098-b2c0-bbaf3b129b74)  
 
-
 ---
 
 ## 🔗 Useful Links  
@@ -48,7 +50,7 @@ Follow these steps to install ReVibe manually:
 ---
 
 ## ⚡ Tech Stack  
-- JavaScript (Chrome Extension APIs)  
+- JavaScript (Chrome Extension APIs, Manifest V3 for upcoming ad blocking)  
 - React (UI Components)  
 - Tailwind CSS (Styling)  
 
@@ -56,10 +58,9 @@ Follow these steps to install ReVibe manually:
 
 ## 🤝 Contributing  
 Contributions, issues, and feature requests are welcome!  
-Feel free to open an [issue](https://github.com/Rahmanhusain/revibe/issues) or submit a PR.  
+We’re working on an exciting v2.0 update with an ad blocker and more groundbreaking features. Want to help shape ReVibe’s future? Join us by tackling current issues or proposing new ideas! Check out the [issue tracker](https://github.com/Rahmanhusain/revibe/issues) to collaborate on fixing bugs or developing new features together. Submit a PR to make an impact!
 
 ---
 
 ## 📜 License  
-MIT License © 2025 – ReVibe  
-
+MIT License © 2025 – ReVibe
