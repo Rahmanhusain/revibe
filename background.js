@@ -1,5 +1,5 @@
 // Function to update the totalDuration value which tracks the user's screen time and reset every day change
-
+import '/js/background.js'
 
 //Start of totalDuration
 
@@ -105,3 +105,4 @@ async function checkForUpdate() {
     console.error("Error checking for updates:", error);
   }
 }
+
