@@ -1,5 +1,5 @@
 // Function to update the totalDuration value which tracks the user's screen time and reset every day change
-import '/js/background.js'
+import '/UBOL_codebase/js/background.js'
 
 //Start of totalDuration
 
